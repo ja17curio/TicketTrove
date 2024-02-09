@@ -18,9 +18,6 @@ return new class extends Migration
             $table->integer('order_id');
             $table->tinyIncrements('is_scanned');
             $table->timestamps();
-
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('ticket_type_id')->references('id')->on('ticket_types');
         });
     }
 
