@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->integer('ticket_type_id');
             $table->string('name');
-            $table->integer('order_id');
             $table->tinyInteger('is_scanned');
             $table->timestamps();
         });

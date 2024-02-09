@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::table('tickets', function (Blueprint $table) {
             $table->foreignId('order_id')->references('id')->on('orders');
-            $table->foreignId('ticket_types_id')->references('id')->on('ticket_types');
+            $table->foreignId('ticket_type_id')->references('id')->on('ticket_types');
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
     {
         Schema::table('tickets', function (Blueprint $table) {
             $table->dropForeign('order_id');
-            $table->dropForeign('ticket_types_id');
+            $table->dropForeign('ticket_type_id');
         });
     }
 };
