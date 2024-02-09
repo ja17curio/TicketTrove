@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('ticket_type_id');
             $table->string('name');
             $table->integer('order_id');
-            $table->tinyIncrements('is_scanned');
+            $table->tinyInteger('is_scanned');
             $table->timestamps();
         });
     }
