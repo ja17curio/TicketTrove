@@ -17,9 +17,10 @@ return new class extends Migration
             $table->unsignedBigInteger("available");
             $table->double("price");
             $table->unsignedBigInteger("ticket_type_id");
-            $table->unsignedBigInteger("event_it");
+            $table->unsignedBigInteger("event_id");
 
             $table->foreign("event_id")->references("id")->on("events");
+            $table->foreign("ticket_type_id")->references("id")->on("ticket_types");
         });
     }
 
