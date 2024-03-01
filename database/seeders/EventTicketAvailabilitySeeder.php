@@ -6,9 +6,9 @@ use App\Models\Event;
 use App\Models\TicketType;
 use Illuminate\Database\Seeder;
 
-class EventTicketAvailability extends Seeder
+class EventTicketAvailabilitySeeder extends Seeder
 {
-    
+
     public function run(): void
     {
         $tickettype = TicketType::inrandomorder()->first();
