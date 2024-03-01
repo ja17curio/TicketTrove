@@ -7,19 +7,19 @@ use App\Models\Order;
 use App\Models\User;
 use App\Models\Event;
 
-class OrdersSeeder extends Seeder
+class OrderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
-     */ 
+     */
     public function run()
     {
         $user = User::inRandomOrder()->first();
-        $event = Event::inRandomOder()->first();
+        $event = Event::inRandomOrder()->first();
 
-       
+
         Order::create([
 
             'user_id' => $user->id,
