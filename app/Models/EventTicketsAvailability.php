@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EventTicketAvailability extends Model
+class EventTicketsAvailability extends Model
 {
     use HasFactory;
 }
