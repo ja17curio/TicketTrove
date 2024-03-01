@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Event;
-use App\Models\Ticket;
 use App\Models\TicketType;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class EventTicketAvailability extends Seeder
