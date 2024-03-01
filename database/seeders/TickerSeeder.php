@@ -8,7 +8,7 @@ use App\Models\Ticket;
 use App\Models\Order;
 use App\Models\TicketType;
 
-class TickerSeeder extends Seeder
+class TicketSeeder extends Seeder
 {
     /**
      * Run the database seeds.
