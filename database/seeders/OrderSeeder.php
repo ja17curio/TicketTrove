@@ -13,21 +13,17 @@ class OrdersTableSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
-     */
+     */ 
     public function run()
     {
-        $users = User::all();
-        $events = Event::all();
+        $users = User::inRandomOrder()->first();
+        $events = Event::inRandomOder()->first();
 
-        foreach ($users as $user) {
-            foreach ($events as $event) {
-                Order::create([
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                    'user_id' => $user->id,
-                    'event_id' => $event->id,
-                ]);
-            }
-        }
+       
+        Order::create([
+
+            'user_id' => $user->id,
+            'event_id' => $event->id,
+        ]);
     }
 }
