@@ -16,8 +16,8 @@ class OrdersTableSeeder extends Seeder
      */ 
     public function run()
     {
-        $users = User::inRandomOrder()->first();
-        $events = Event::inRandomOder()->first();
+        $user = User::inRandomOrder()->first();
+        $event = Event::inRandomOder()->first();
 
        
         Order::create([
