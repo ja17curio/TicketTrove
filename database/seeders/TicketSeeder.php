@@ -16,6 +16,7 @@ class TicketSeeder extends Seeder
     {
         $order = Order::inRandomOrder()->first();
         $ticketType = TicketType::inRandomOrder()->first();
+        
         Ticket::create([
             'name' => fake()->text(),
             'is_scanned' => 0,

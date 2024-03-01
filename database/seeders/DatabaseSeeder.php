@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TicketTypesSeeder::class);
         $this->call(OrdersSeeder::class);
         $this->call(EventTicketAvailability::class);
+        $this->call(Ticket::class);
     }
 }
