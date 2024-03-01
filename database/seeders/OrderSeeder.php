@@ -7,7 +7,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Models\Event;
 
-class OrdersTableSeeder extends Seeder
+class OrdersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
