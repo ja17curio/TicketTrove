@@ -13,8 +13,8 @@ class ExampleController extends Controller
      */
     public function index()
     {
-        //
-        dd("test");
+        $events = Event::all();
+        return view ('example.index', compact('events'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ExampleController extends Controller
      */
     public function create()
     {
-        //
+        return view('example.create');
     }
 
     /**
@@ -30,7 +30,18 @@ class ExampleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'start_datetime' => 'required',
+            'end_datetime' => 'required',
+            'description' => 'required',
+            'creator' => 'required'
+        ]);
+
+        Event::create($request->post());
+
+        return redirect()->route('example.index')->with('succes','Event is aangemaakt');
     }
 
     /**
@@ -46,8 +57,10 @@ class ExampleController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
+//        public function edit(Event $event)
     {
-        //
+        $event = Event::find($id);
+        return view('example.edit', compact('event'));
     }
 
     /**
@@ -55,7 +68,20 @@ class ExampleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $event = Event::find($id);
+
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'start_datetime' => 'required',
+            'end_datetime' => 'required',
+            'description' => 'required'
+        ]);
+
+        $event->fill($request->post())->save();
+
+        return redirect()->route('example.index')->with('succes', 'Evenement is aangepast');
+
     }
 
     /**
@@ -63,7 +89,10 @@ class ExampleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect()->route('example.index')->with('succes', 'Evenement is verwijderd');
     }
 
     //test function
