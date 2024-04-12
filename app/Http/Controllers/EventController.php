@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -34,7 +33,18 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'start_datetime' => 'required',
+            'end_datetime' => 'required',
+            'description' => 'required',
+            'creator' => 'required'
+        ]);
+
+        Event::create($request->post());
+
+        return redirect()->route('events.index')->with('succes','Event is aangemaakt');
     }
 
     /**
