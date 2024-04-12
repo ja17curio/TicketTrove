@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="container mt-2">
-    {{-- @Auth
-        @if (!Auth::user()->is_admin)
-            {{ route('home') }}
-        @endif
-    @endauth --}}
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -18,6 +13,7 @@
             </div>
         </div>
     </div>
+
     <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
@@ -67,7 +63,7 @@
                 </div>
             </div>
 
-            <input type="hidden" name="creator" value={{ Auth::user()->id }}>
+            <input type="hidden" name="creator" value="{{Auth::user()->id}}">
 
             <button type="submit" class="btn btn-primary ml-3">Submit</button>
 

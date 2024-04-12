@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -25,7 +26,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::user()->is_admin = 1)
+            return view('home');
+        else
+            return view('events.create');
     }
 
     /**
