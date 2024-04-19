@@ -14,4 +14,9 @@ class Event extends Model
     {
         return $this->belongsTo(User::class, 'creator');
     }
+
+    public function availability()
+    {
+        return $this->hasOne(EventTicketsAvailability::class, 'event_id');
+    }
 }
