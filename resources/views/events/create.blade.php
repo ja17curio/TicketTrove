@@ -56,7 +56,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Omschrijving</strong>
-                    <textarea class="form-control" name="description" placeholder="End Datetime"></textarea>
+                    <textarea class="form-control" name="description" placeholder="Omschrijving"></textarea>
                     @error('description')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
