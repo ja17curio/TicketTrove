@@ -42,24 +42,42 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Event $event)
+    // public function edit(Event $event)
+    public function edit(string $id)
     {
-        //
+        $event = Event::find($id);
+        return view('events.edit', compact('event'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, string $id)
     {
-        //
+        $event = Event::find($id);
+
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'start_datetime' => 'required',
+            'end_datetime' => 'required',
+            'description' => 'required'
+        ]);
+
+        $event->fill($request->post())->save();
+
+        return redirect()->route('events.index')->with('succes', 'Evenement is aangepast');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Event $event)
+    public function destroy(string $id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect()->route('events.index')->with('succes', 'Evenement is verwijderd');
     }
 }
