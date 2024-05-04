@@ -19,4 +19,8 @@ class Event extends Model
     {
         return $this->hasOne(EventTicketsAvailability::class, 'event_id');
     }
+    public function order()
+    {
+        return $this->hasMany(Order::class, 'event_id');
+    }
 }
