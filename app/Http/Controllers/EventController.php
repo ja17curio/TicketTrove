@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\EventTicketsAvailability;
+use App\Models\TicketType;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +63,10 @@ class EventController extends Controller
     public function show(string $id)
     {
         $event = Event::find($id);
-        return view('events.details');
+
+        // Get the availale tickets for the provided Event
+        $ticketTypes = EventTicketsAvailability::where('event_id', $event->id)->get();
+        return view('events.details', compact('event', 'ticketTypes'));
     }
 
     /**
