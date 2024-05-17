@@ -33,7 +33,7 @@ Route::resource('orders', OrderController::class);
 Route::resource('tickets', TicketController::class);
 Route::resource('ticket_types', TicketTypeController::class);
 
-
+Route::get('events/{eventId}', [EventController::class, 'show']);
 
 //example routes
 Route::get('example/test', [ExampleController::class, 'testfunctie']);
