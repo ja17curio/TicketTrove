@@ -12,7 +12,7 @@ class EventSeeder extends Seeder {
     public function run(): void
     {
 
-        $creator = User::inRandomOrder()->first();
+        $creator = User::where('is_admin', 1)->inRandomOrder()->first();
 
         Event::create([
             'name' => 'Test Evenementje',
