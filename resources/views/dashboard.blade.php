@@ -61,7 +61,7 @@
                                     @endforeach
                             </table>
                         @endisset
-                        @if($eventsMade != null)
+                        @if(!$eventsMade->isEmpty())
                             <table class="table table-bordered">
                                 <thead class="bg-gray-50">
                                     <tr>

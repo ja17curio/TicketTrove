@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Order;
 use App\Models\User;
-use App\Models\ticket;
+use App\Models\Ticket;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
