@@ -8,8 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'user_id');
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'order_id');
+    }
+
     public function event()
     {
-        return $this->belongsTo(event::class, 'event_id');
+        return $this->belongsTo(Event::class, 'event_id');
     }
 }

@@ -1,0 +1,39 @@
+@use '../variables' as *;
+
+section.event-insight{
+    div.container{
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(2, auto);
+
+        row-gap: 20px;
+
+        background-color: $container-bg;
+        padding: 20px;
+
+        div.inventory-column,
+        div.winnings-column 
+        {
+            grid-row: 1;
+            
+            border-bottom: $border-color 4px solid
+        }
+
+        div.intentory-column{
+            grid-column: 1;
+        }
+
+        div.winnings-column{
+            grid-column: 2;
+        }
+
+        div.orders-column{
+            grid-row: 2;
+        }
+
+        p.big-and-bold{
+            font-size: map-get($map: $big-and-bold, $key: 'size');
+            font-weight: map-get($map: $big-and-bold, $key: 'weight');
+        }
+    }
+}
