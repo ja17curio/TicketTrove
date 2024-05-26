@@ -30,6 +30,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/dashboard/{user}', [HomeController::class, 'dashboard'])->name('dashboard');
 Route::resource('events', EventController::class);
+Route::get('events/{event}/insight', [EventController::class, 'insight']);
 Route::resource('event_tickets_availability', EventTicketAvailabilityController::class);
 Route::resource('orders', OrderController::class);
 Route::resource('tickets', TicketController::class);
