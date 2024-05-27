@@ -1,0 +1,56 @@
+@use "../variables" as *;
+
+section.insight {
+    div.container {
+        display: flex;
+
+        border-bottom: 2px solid $border-color;
+    }
+
+    div.container table {
+        display: flex;
+
+        gap: 10px;
+        width: 100%;
+
+        tbody {
+            width: 100%;
+        }
+
+        tr {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(6, auto);
+
+            align-items: center;
+        }
+
+        td {
+            margin: 10px;
+
+            &.align-right {
+                justify-self: flex-end;
+            }
+        }
+    }
+
+    div.container a {
+        text-decoration: none;
+
+        color: $text-color;
+        background-color: $container-bg;
+
+        align-self: center;
+        transition: 150ms all;
+        padding: 15px 10px;
+
+        i{
+            margin-right: 10px;
+        }
+
+        &:hover {
+            color: $body-bg;
+            background-color: $border-color;
+        }
+    }
+}
