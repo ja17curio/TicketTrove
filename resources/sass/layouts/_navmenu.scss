@@ -1,0 +1,22 @@
+@use '../variables' as *;
+
+
+nav.navbar div.container a.menu-button{
+    text-decoration: none;
+
+    color: $text-color;
+    background-color: $container-bg;
+
+    align-self: center;
+    transition: 150ms all;
+    padding: 15px 10px;
+
+    i{
+        margin-right: 10px;
+    }
+
+    &:hover {
+        color: $body-bg;
+        background-color: $border-color;
+    }
+}

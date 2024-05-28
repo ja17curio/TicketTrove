@@ -5,6 +5,7 @@ section.insight {
         display: flex;
 
         border-bottom: 2px solid $border-color;
+        background-color: $container-bg;
     }
 
     div.container table {

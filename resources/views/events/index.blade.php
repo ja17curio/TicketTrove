@@ -62,9 +62,6 @@
                                         <button type="submit" class="btn btn-danger">Verwijder</button>
                                     </form>
                                 </td>
-                                <td>
-                                    <a class="insight-button" href="/events/{{ $event->id }}/insight">Inzicht in verkoop<i class="fa-solid fa-money-bill-trend-up"></i></a>
-                                </td>
                             @endif
                         @endauth
                     </tr>
