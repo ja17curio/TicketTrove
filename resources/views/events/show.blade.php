@@ -18,7 +18,7 @@
                                     $price = $event->availability->price;
 
                                     foreach ($event->order as $order) {
-                                        $total +=  (count($order->tickets) * $price);
+                                        $total += count($order->tickets) * $price;
                                     }
 
                                     echo $total;
@@ -28,12 +28,15 @@
                                 <h4>Inventaris</h4>
                                 <span>Nog {{ $event->availability->available }} tickets beschikbaar</span>
                             </td>
-                            <td class="align-right">
-                                <a href="{{ route('orders.index') }}"><i class="fa-regular fa-clipboard"></i>Naar orders</a>
+                            <td>
+                                <div class="col align-right">
+                                    <a href="{{ route('orders.index') }}"><i class="fa-regular fa-clipboard"></i>Naar orders</a>
+
+                                    <a href="{{ route('events.edit', $event) }}"><i
+                                            class="fa-solid fa-pen-to-square"></i>Evenement bewerken</a>
+                                </div>
                             </td>
-                            <td class="align-right">
-                                <a href="{{ route('events.edit', $event) }}"><i class="fa-solid fa-pen-to-square"></i>Evenement bewerken</a>
-                            </td>
+
                         </tbody>
                     </table>
                 </div>

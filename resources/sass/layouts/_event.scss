@@ -1,4 +1,5 @@
 @use "../variables" as *;
+@use '../screens' as *;
 
 section.insight {
     div.container {
@@ -18,15 +19,28 @@ section.insight {
             grid-template-rows: auto;
             grid-template-columns: repeat(6, auto);
 
+            @include screen-sm{
+                grid-template-rows: repeat(5, auto);
+                grid-template-columns: auto;
+            }
+
+            @include screen-xs{
+                grid-template-rows: repeat(5, auto);
+                grid-template-columns: auto;
+            }
+
             align-items: center;
         }
 
         td {
             margin: 10px;
+        }
 
-            &.align-right {
-                justify-self: flex-end;
-            }
+        .align-right {
+            display: flex;
+            justify-content: space-between;
+
+            justify-self: flex-end;
         }
     }
 
