@@ -2,16 +2,11 @@
 
 section.insight {
     div.container {
-        display: flex;
-
         border-bottom: 2px solid $border-color;
         background-color: $container-bg;
     }
 
     div.container table {
-        display: flex;
-
-        gap: 10px;
         width: 100%;
 
         tbody {
