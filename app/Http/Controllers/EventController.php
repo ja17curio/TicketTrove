@@ -62,12 +62,7 @@ class EventController extends Controller
     {
         return view('events.show', compact('event'));
     }
-
-    public function insight(Event $event)
-    {
-        return view('events.insight', compact('event'));
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      */

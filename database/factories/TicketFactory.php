@@ -27,6 +27,7 @@ class TicketFactory extends Factory
             'is_scanned' => 0,
             'order_id' => $order->id,
             'ticket_type_id' => $ticketType->id,
+            'is_available' => rand(0, 1),
         ];
     }
 }

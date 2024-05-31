@@ -14,7 +14,7 @@ class Ticket extends Model
         return $this->belongsTo(Order::class, 'order_id');
     }
 
-    public function ticketType()
+    public function ticket_type()
     {
         return $this->belongsTo(TicketType::class, 'ticket_type_id');
     }
