@@ -1,0 +1,78 @@
+@import url("https://fonts.bunny.net/css?family=Nunito");
+section.insight div.container {
+  border-bottom: 2px solid #8498ad;
+  background-color: #e8f0f8;
+}
+section.insight div.container table {
+  width: 100%;
+}
+section.insight div.container table tbody {
+  width: 100%;
+}
+section.insight div.container table tr {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(4, auto);
+  align-items: center;
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  section.insight div.container table tr {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: auto;
+  }
+}
+@media (max-width: 576px) {
+  section.insight div.container table tr {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: auto;
+  }
+}
+section.insight div.container table td {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+section.insight div.container table .small.italic {
+  font-size: 0.6em;
+  font-weight: 700;
+  font-style: italic;
+}
+section.insight div.container table .align-right {
+  display: flex;
+  justify-content: space-between;
+  justify-self: flex-end;
+}
+section.insight div.container a {
+  text-decoration: none;
+  color: #4c5661;
+  background-color: #e8f0f8;
+  align-self: center;
+  transition: 150ms all;
+  padding: 15px 10px;
+}
+section.insight div.container a i {
+  margin-right: 10px;
+}
+section.insight div.container a:hover {
+  color: #f8fafc;
+  background-color: #8498ad;
+}
+
+nav.navbar div.container a.menu-button {
+  text-decoration: none;
+  color: #4c5661;
+  background-color: #e8f0f8;
+  align-self: center;
+  transition: 150ms all;
+  padding: 15px 10px;
+}
+nav.navbar div.container a.menu-button i {
+  margin-right: 10px;
+}
+nav.navbar div.container a.menu-button:hover {
+  color: #f8fafc;
+  background-color: #8498ad;
+}
+
+/*# sourceMappingURL=app.css.map */
