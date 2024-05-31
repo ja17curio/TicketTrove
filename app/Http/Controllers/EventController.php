@@ -9,10 +9,12 @@ use Illuminate\Http\Request;
 use App\Models\EventTicketsAvailability;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 >>>>>>> Stashed changes
+
 
 class EventController extends Controller
 {
@@ -21,7 +23,15 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+        foreach($events as $event)
+        {
+            $event->start = strtotime($event->start_datetime);
+            $event->start = date('d F Y, H:i', $event->start);
+            $event->end = strtotime($event->end_datetime);
+            $event->end = date('d F Y, H:i', $event->end);
+        }
+        return view('events.index', compact("events"));
     }
 
     /**
@@ -29,7 +39,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::user()->is_admin = 0)
+            return view('home');
+        else
+            return view('events.create');
     }
 
     /**
@@ -37,7 +50,18 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'start_datetime' => 'required',
+            'end_datetime' => 'required',
+            'description' => 'required',
+            'creator' => 'required'
+        ]);
+
+        Event::create($request->post());
+
+        return redirect()->route('events.index')->with('succes','Event is aangemaakt');
     }
 
     /**
@@ -45,7 +69,8 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+//        $events = Event::find($event->id);
+        return $event;
     }
 
     /**

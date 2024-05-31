@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event_tickets_availablity', function (Blueprint $table) {
+        Schema::create('event_tickets_availabilities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger("available");
