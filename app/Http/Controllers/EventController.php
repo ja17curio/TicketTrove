@@ -110,9 +110,9 @@ class EventController extends Controller
 
         // Get the availale tickets for the provided Event
         $ticketTypesAvailability = EventTicketsAvailability::where('event_id', $event->id)->get();
-        return view('events.details', compact('event', 'ticketTypesAvailability'));
+        return view('events.show', compact('event', 'ticketTypesAvailability'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -152,7 +152,7 @@ class EventController extends Controller
             $event->image = 'eventImages/' . $fileName;
             $event->save();
         }
-            
+
 
         return redirect()->route('events.index')->with('succes', 'Evenement is aangepast');
     }
