@@ -66,6 +66,20 @@
                         </div>
                     </div>
 
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-12 pb-3">
+                        <div class="form-group">
+                            <strong>Evenement afbeelding</strong>
+                            <input type="file"  accept=".jpg,.jpeg,.png,.pdf" class="form-control" name="image">
+                            @error('image')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="d-flex flex-column">
+                            <strong>Huidig Evenement afbeelding</strong>
+                            <img class="w-25" src="{{asset($event->image)}}" alt="oops">
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary ml-3">Submit</button>
                 </div>
             </form>
