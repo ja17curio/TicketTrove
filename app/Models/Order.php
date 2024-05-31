@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    public function event()
+    {
+        return $this->belongsTo(event::class, 'event_id');
+    }
 }
