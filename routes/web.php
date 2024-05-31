@@ -10,6 +10,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketTypeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,7 +41,7 @@ Route::resource('ticket_types', TicketTypeController::class);
 Route::resource('shopping_cart', ShoppingCartController::class);
 Route::resource('payments', PaymentController::class);
 Route::resource('outstanding_bills', OutstandingBillController::class);
-
+Route::resource('users', UserController::class);
 Route::get('/events/{event}/initiate_paymnent', [PaymentController::class, 'initiate_payment']);
 
 //example routes

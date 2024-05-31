@@ -1,6 +1,12 @@
 @extends('layouts.app')
-
 @section('content')
+<div class="card-body">
+    @if (session('succes'))
+        <div class="alert alert-success" role="succes">
+            {{ session('succes') }}
+        </div>
+    @endif
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
