@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketTypeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,7 @@ Route::resource('event_tickets_availability', EventTicketAvailabilityController:
 Route::resource('orders', OrderController::class);
 Route::resource('tickets', TicketController::class);
 Route::resource('ticket_types', TicketTypeController::class);
-
+Route::resource('users', UserController::class);
 
 
 //example routes
