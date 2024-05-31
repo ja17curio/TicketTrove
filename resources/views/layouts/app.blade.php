@@ -62,7 +62,7 @@
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('users.edit', AUTH::user()->id)}}"> 
-                                        {{__('Instellingen')}}l
+                                        {{__('Instellingen')}}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
