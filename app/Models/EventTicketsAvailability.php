@@ -18,5 +18,4 @@ class EventTicketsAvailability extends Model
     {
         return $this->belongsTo(TicketType::class, 'ticket_type_id');
     }
-
 }

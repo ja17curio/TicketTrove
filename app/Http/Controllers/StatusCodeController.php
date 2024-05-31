@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
-use App\Models\EventTicketsAvailability;
-use App\Models\TicketType;
+use App\Models\StatusCode;
 use Illuminate\Http\Request;
 
-class EventTicketAvailabilityController extends Controller
+class StatusCodeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(EventTicketsAvailability $event)
+    public function index()
     {
-        return view('event_tickets_availability.index')->with('availability', $event->first());
+        //
     }
 
     /**
@@ -36,7 +34,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(EventTicketsAvailability $eventTicketAvailability)
+    public function show(StatusCode $statusCode)
     {
         //
     }
@@ -44,7 +42,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EventTicketsAvailability $eventTicketAvailability)
+    public function edit(StatusCode $statusCode)
     {
         //
     }
@@ -52,7 +50,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, EventTicketsAvailability $eventTicketAvailability)
+    public function update(Request $request, StatusCode $statusCode)
     {
         //
     }
@@ -60,7 +58,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EventTicketsAvailability $eventTicketAvailability)
+    public function destroy(StatusCode $statusCode)
     {
         //
     }

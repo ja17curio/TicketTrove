@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -10,9 +11,9 @@ class TicketController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Event $event)
     {
-        //
+
     }
 
     /**

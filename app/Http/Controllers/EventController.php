@@ -8,6 +8,7 @@ use App\Models\TicketType;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -17,8 +18,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        foreach($events as $event)
-        {
+        foreach ($events as $event) {
             $event->start = strtotime($event->start_datetime);
             $event->start = date('d F Y, H:i', $event->start);
             $event->end = strtotime($event->end_datetime);
@@ -49,12 +49,56 @@ class EventController extends Controller
             'start_datetime' => 'required',
             'end_datetime' => 'required',
             'description' => 'required',
+            'image' => 'required',
             'creator' => 'required'
         ]);
+        // Event::create($request->post());
+        $event = new event;
+        $event->name = $_POST['name'];
+        $event->location = $_POST['location'];
+        $event->start_datetime = $_POST['start_datetime'];
+        $event->end_datetime = $_POST['end_datetime'];
+        $event->description = $_POST['description'];
+        $event->creator = $_POST['creator'];
 
-        Event::create($request->post());
+        $directory = public_path('eventImages');
+        if (!file_exists($directory)) {
+            mkdir($directory, 0755, true);
+        }
+        $file = $request->file('image');
+        $fileName = time() . '.' . $file->getClientOriginalExtension();
+        $file->move($directory, $fileName);
 
-        return redirect()->route('events.index')->with('succes','Event is aangemaakt');
+        $event->image = 'eventImages/' . $fileName;
+        $event->save();
+        $eventId = $event->id;
+
+        if(isset($_POST['earlybird'])){
+            $eventtickets = new EventTicketsAvailability;
+            $eventtickets->ticket_type_id = 1;
+            $eventtickets->available = $_POST['earlybirdInput'];
+            $eventtickets->price = $_POST['earlybirdPrice'];
+            $eventtickets->event_id = $eventId;
+            $eventtickets->save();
+        }
+        if(isset($_POST['regular'])){
+            $eventtickets = new EventTicketsAvailability;
+            $eventtickets->ticket_type_id = 2;
+            $eventtickets->available = $_POST['regularInput'];
+            $eventtickets->price = $_POST['regularPrice'];
+            $eventtickets->event_id = $eventId;
+            $eventtickets->save();
+        }
+        if(isset($_POST['vip'])){
+            $eventtickets = new EventTicketsAvailability;
+            $eventtickets->ticket_type_id = 3;
+            $eventtickets->available = $_POST['vipInput'];
+            $eventtickets->price = $_POST['vipPrice'];
+            $eventtickets->event_id = $eventId;
+            $eventtickets->save();
+        }
+
+        return redirect()->route('events.index')->with('succes', 'Event is aangemaakt');
     }
 
     /**
@@ -68,7 +112,7 @@ class EventController extends Controller
         $ticketTypesAvailability = EventTicketsAvailability::where('event_id', $event->id)->get();
         return view('events.details', compact('event', 'ticketTypesAvailability'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
@@ -94,8 +138,21 @@ class EventController extends Controller
             'end_datetime' => 'required',
             'description' => 'required'
         ]);
-
         $event->fill($request->post())->save();
+        if($request->file('image') != null)
+        {
+            $directory = public_path('eventImages');
+            if (!file_exists($directory)) {
+                mkdir($directory, 0755, true);
+            }
+            $file = $request->file('image');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move($directory, $fileName);
+
+            $event->image = 'eventImages/' . $fileName;
+            $event->save();
+        }
+            
 
         return redirect()->route('events.index')->with('succes', 'Evenement is aangepast');
     }
