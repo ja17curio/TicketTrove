@@ -2,6 +2,21 @@
 
 @section('content')
 
+    <script>
+        function incrementCounter(button) {
+            const counter = button.previousElementSibling;
+            counter.textContent = parseInt(counter.textContent) + 1;
+        }
+
+        function decrementCounter(button) {
+            const counter = button.nextElementSibling;
+            const currentValue = parseInt(counter.textContent);
+            if (currentValue > 0) {
+                counter.textContent = currentValue - 1;
+            }
+        }
+    </script>
+
     @auth
         @if (Auth::user()->is_admin)
             <section class="insight">
@@ -44,20 +59,6 @@
             </section>
         @endif
     @endauth
-    <script>
-        function incrementCounter(button) {
-            const counter = button.previousElementSibling;
-            counter.textContent = parseInt(counter.textContent) + 1;
-        }
-
-        function decrementCounter(button) {
-            const counter = button.nextElementSibling;
-            const currentValue = parseInt(counter.textContent);
-            if (currentValue > 0) {
-                counter.textContent = currentValue - 1;
-            }
-        }
-    </script>
 
     <div class="d-flex justify-content-center align-items-center flex-column">
         @isset($event)
