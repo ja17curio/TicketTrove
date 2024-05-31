@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EventTicketAvailability;
+use App\Models\Event;
+use App\Models\EventTicketsAvailability;
+use App\Models\TicketType;
 use Illuminate\Http\Request;
 
 class EventTicketAvailabilityController extends Controller
@@ -10,9 +12,9 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(EventTicketsAvailability $event)
     {
-        //
+        return view('event_tickets_availability.index')->with('availability', $event->first());
     }
 
     /**
@@ -34,7 +36,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(EventTicketAvailability $eventTicketAvailability)
+    public function show(EventTicketsAvailability $eventTicketAvailability)
     {
         //
     }
@@ -42,7 +44,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EventTicketAvailability $eventTicketAvailability)
+    public function edit(EventTicketsAvailability $eventTicketAvailability)
     {
         //
     }
@@ -50,7 +52,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, EventTicketAvailability $eventTicketAvailability)
+    public function update(Request $request, EventTicketsAvailability $eventTicketAvailability)
     {
         //
     }
@@ -58,7 +60,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EventTicketAvailability $eventTicketAvailability)
+    public function destroy(EventTicketsAvailability $eventTicketAvailability)
     {
         //
     }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class TicketType extends Model
 {
     use HasFactory;
+
+    public function availability()
+    {
+        return $this->hasOne(EventTicketsAvailability::class, 'id');
+    }
 }

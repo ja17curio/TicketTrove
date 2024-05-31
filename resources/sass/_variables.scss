@@ -1,7 +1,14 @@
 // Body
 $body-bg: #f8fafc;
+$container-bg:#e8f0f8;
+$border-color: #8498ad;
+$text-color:#4c5661;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+$big-and-bold: (
+    'size': 2.4em,
+    'weight': 700,
+);

@@ -13,24 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'Test User 1',
-            'email' => 'boeien@boeien.nl',
-            'password' => Hash::make('testtest'),
-            'is_admin' => 1
-        ]);
-
-        User::create([
-            'name' => 'Test User 2',
-            'email' => 'aa@aa.nl',
-            'password' => Hash::make('testtest'),
-        ]);
-
-        User::create([
-            'name' => 'Test User 3',
-            'email' => 'boeiend@boeien.nl',
-            'password' => Hash::make('testtest'),
-        ]);
-
+        User::factory(10)->create();
     }
 }
