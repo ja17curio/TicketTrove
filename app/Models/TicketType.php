@@ -11,6 +11,6 @@ class TicketType extends Model
 
     public function availability()
     {
-        return $this->hasOne(EventTicketsAvailability::class, 'id');
+        return $this->hasMany(EventTicketsAvailability::class, 'ticket_type_id');
     }
 }
