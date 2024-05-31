@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -60,6 +61,7 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $user = User::find($id);                
+        $hashed = hash::make($request->input('password'));
         
         $request->validate([
             'name' => 'required',
@@ -67,20 +69,18 @@ class UserController extends Controller
             'password' => 'required',
             'password_check' => 'required'
         ]);
-
+        
         if ($request->password != $request->password_check)
         {
             return redirect()->route('users.edit', compact('user'))->with('error', 'wachtwoorden zijn niet gelijk!');
         }
+        
+        $user->fill($request->post());
+        $user->setAttribute('password', $hashed)->save();
 
-        $user->fill($request->post())->save();
-
-        return redirect()->route('home.index')->with('succes', 'gebruiker is aangepast');
+        return redirect()->route('home')->with('succes', 'gebruiker is aangepast');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //
