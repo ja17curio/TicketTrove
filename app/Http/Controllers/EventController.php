@@ -65,8 +65,8 @@ class EventController extends Controller
         $event = Event::find($id);
 
         // Get the availale tickets for the provided Event
-        $ticketTypes = EventTicketsAvailability::where('event_id', $event->id)->get();
-        return view('events.details', compact('event', 'ticketTypes'));
+        $ticketTypesAvailability = EventTicketsAvailability::where('event_id', $event->id)->get();
+        return view('events.details', compact('event', 'ticketTypesAvailability'));
     }
 
     /**

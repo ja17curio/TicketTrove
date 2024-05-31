@@ -13,4 +13,10 @@ class EventTicketsAvailability extends Model
     {
         return $this->belongsTo(Event::class, 'event_id');
     }
+
+    public function ticketType()
+    {
+        return $this->belongsTo(TicketType::class, 'ticket_type_id');
+    }
+
 }
