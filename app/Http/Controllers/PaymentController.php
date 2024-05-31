@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Payment;
 use App\Models\Event;
-use App\Models\EventTicketsAvailability;
-use App\Models\TicketType;
 use Illuminate\Http\Request;
 
-class EventTicketAvailabilityController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(EventTicketsAvailability $event)
+    public function index()
     {
-        return view('event_tickets_availability.index')->with('availability', $event->first());
+        //
     }
 
     /**
@@ -33,18 +33,24 @@ class EventTicketAvailabilityController extends Controller
         //
     }
 
+    public function initiate_payment(Event $event)
+    {
+        $order = new Order(['event_id' => $event->id]);
+        $payment = new Payment(['order_id' => $order->id]);
+    }
+
     /**
      * Display the specified resource.
      */
-    public function show(EventTicketsAvailability $eventTicketAvailability)
+    public function show(Payment $payment)
     {
-        //
+        return view('payments.show', compact('payment'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EventTicketsAvailability $eventTicketAvailability)
+    public function edit(Payment $payment)
     {
         //
     }
@@ -52,7 +58,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, EventTicketsAvailability $eventTicketAvailability)
+    public function update(Request $request, Payment $payment)
     {
         //
     }
@@ -60,7 +66,7 @@ class EventTicketAvailabilityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EventTicketsAvailability $eventTicketAvailability)
+    public function destroy(Payment $payment)
     {
         //
     }

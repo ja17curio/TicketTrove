@@ -16,14 +16,6 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::inRandomOrder()->first();
-        $event = Event::inRandomOrder()->first();
-
-
-        Order::create([
-
-            'user_id' => $user->id,
-            'event_id' => $event->id,
-        ]);
+        Order::factory(10)->create();
     }
 }

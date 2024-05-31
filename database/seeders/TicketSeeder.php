@@ -14,14 +14,6 @@ class TicketSeeder extends Seeder
      */
     public function run(): void
     {
-        $order = Order::inRandomOrder()->first();
-        $ticketType = TicketType::inRandomOrder()->first();
-        
-        Ticket::create([
-            'name' => fake()->text(),
-            'is_scanned' => 0,
-            'order_id' => $order->id,
-            'ticket_type_id' => $ticketType->id,
-        ]);
+       Ticket::factory(100)->create();
     }
 }

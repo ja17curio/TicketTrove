@@ -16,8 +16,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        foreach($events as $event)
-        {
+        foreach ($events as $event) {
             $event->start = strtotime($event->start_datetime);
             $event->start = date('d F Y, H:i', $event->start);
             $event->end = strtotime($event->end_datetime);
@@ -53,7 +52,7 @@ class EventController extends Controller
 
         Event::create($request->post());
 
-        return redirect()->route('events.index')->with('succes','Event is aangemaakt');
+        return redirect()->route('events.index')->with('succes', 'Event is aangemaakt');
     }
 
     /**
@@ -61,10 +60,9 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-//        $events = Event::find($event->id);
-        return $event;
+        return view('events.show', compact('event'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
