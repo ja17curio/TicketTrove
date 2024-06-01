@@ -1,7 +1,72 @@
 @use "../variables" as *;
 @use "../screens" as *;
 
+section.event-index {
+    table {
+        border: unset;
+    }
+
+    tr {
+        display: grid;
+        grid-template-columns: repeat(9, calc(100% / 9));
+        grid-template-rows: auto;
+
+        transition: all 250ms;
+
+        background-color: $container-bg;
+        border: unset;
+
+        &:hover {
+            background-color: $row-hover;
+
+        }
+    }
+
+    td,
+    th {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        align-items: center;
+        justify-content: center;
+
+        border: unset;
+
+        border-bottom: 2px solid $border-color;
+    }
+
+    td a,
+    td button {
+        text-decoration: none;
+
+        color: $text-color;
+        background-color: transparent;
+
+        align-self: center;
+        transition: 150ms all;
+        padding: 15px 10px;
+
+        border: unset;
+        outline: unset;
+        border-radius: unset;
+
+        margin: 5px;
+
+        i {
+            margin-right: 10px;
+        }
+
+        &:hover {
+            color: $body-bg;
+            background-color: $border-color;
+        }
+    }
+}
+
 section.insight {
+    padding: 20px 0;
+
     div.container {
         border-bottom: 2px solid $border-color;
         background-color: $container-bg;
@@ -38,9 +103,13 @@ section.insight {
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
+
+            &:hover {
+                background-color: $container-bg;
+            }
         }
-        
-        .small.italic{
+
+        .small.italic {
             font-size: 0.6em;
             font-weight: 700;
             font-style: italic;

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Event;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PaymentController extends Controller
 {
@@ -35,8 +38,17 @@ class PaymentController extends Controller
 
     public function initiate_payment(Event $event)
     {
-        $order = new Order(['event_id' => $event->id]);
-        $payment = new Payment(['order_id' => $order->id]);
+        $order = new Order();
+        $order->event = $event;
+        $order->user = Auth::user();
+        $order->save();
+
+        $payment = new Payment();
+        $payment->order = $order;
+        $payment->status = 'has_outstanding_bill';
+        $payment->save();
+
+        redirect(route('payments.show', $payment));
     }
 
     /**
