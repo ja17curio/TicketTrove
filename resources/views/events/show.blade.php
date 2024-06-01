@@ -60,7 +60,7 @@
         @endif
     @endauth
 
-    <div class="d-flex justify-content-center align-items-center flex-column">
+    <div class="container d-flex justify-content-center align-items-center flex-column">
         @isset($event)
             <img src="https://www.wearetravellers.nl/wp-content/uploads/Grootste-festivals-nederland.jpg" alt="Gecentreerde Afbeelding" class="rounded-image mx-auto d-block">
             <h1 class="mt-5">{{$event->name}}</h1>

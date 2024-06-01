@@ -75,4 +75,15 @@ nav.navbar div.container a.menu-button:hover {
   background-color: #8498ad;
 }
 
+.rounded-image {
+  width: 600px;
+  height: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.static-button-event-details {
+  width: 150px;
+}
+
 /*# sourceMappingURL=app.css.map */
