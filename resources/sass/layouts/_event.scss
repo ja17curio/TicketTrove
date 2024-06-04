@@ -2,64 +2,221 @@
 @use "../screens" as *;
 
 section.event-index {
-    table {
-        border: unset;
+    div.container {
+        background-color: #ffffff;
     }
 
-    tr {
-        display: grid;
-        grid-template-columns: repeat(9, calc(100% / 9));
-        grid-template-rows: auto;
+    h2 {
+        font-weight: 300;
+        padding: 25px;
+        margin: 0 0 25px 0;
 
-        transition: all 250ms;
-
+        border-bottom: 4px $border-color solid;
         background-color: $container-bg;
-        border: unset;
+    }
 
-        &:hover {
-            background-color: $row-hover;
+    div.event-list {
+        display: flex;
+        flex-direction: column;
 
+        gap: 5px;
+
+        a.event {
+            display: grid;
+            grid-template-columns: repeat(8, calc(100% / 8));
+            grid-template-rows: repeat(2, auto);
+
+            width: -webkit-fill-available;
+            padding: 5px 15px;
+            transition: all 250ms;
+
+            text-decoration: none;
+            color: $text-color;
+
+            &:hover {
+                background-color: $border-color;
+                color: $container-bg;
+
+                button.event-button {
+                    color: $container-bg;
+                }
+            }
+        }
+
+        span.event-title {
+            grid-column: 1 / span 3;
+            grid-row: 1;
+        }
+
+        span.event-location {
+            display: flex;
+            align-items: center;
+
+            grid-column: 5 / span 1;
+            grid-row: 1 / span 2;
+
+            gap: 10px;
+        }
+
+        div.event-timewindow {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            grid-column: 1 / span 3;
+            grid-row: 2;
+        }
+
+        button.buy-tickets {
+            grid-column: 6;
+            grid-row: 1 / span 2;
+        }
+
+        button.edit-event {
+            grid-column: 7;
+            grid-row: 1 / span 2;
+        }
+
+        button.remove-event {
+            grid-column: 8;
+            grid-row: 1 / span 2;
+        }
+
+        span.event-availability {
+            display: flex;
+            align-items: center;
+
+            grid-column: 4;
+            grid-row: 1 / span 2;
+
+            gap: 10px;
         }
     }
 
-    td,
-    th {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
+    div.event-overview {
+        display: grid;
 
-        align-items: center;
-        justify-content: center;
+        grid-template-columns: repeat(3, calc(calc(100% - 40px) / 3));
+        grid-template-rows: repeat(5, 300px);
 
-        border: unset;
+        gap: 25px;
+        background-color: #ffffff;
 
-        border-bottom: 2px solid $border-color;
+        a.event {
+            display: grid;
+            position: relative;
+
+            grid-template-columns: repeat(6, calc(100% / 6));
+            grid-template-rows: repeat(4, calc(100% / 4));
+            justify-items: flex-start;
+
+            transition: all 250ms;
+            text-decoration: none;
+            color: $text-color;
+            border-radius: 20px;
+            background-color: $container-bg;
+
+            box-shadow: 2px 3px 6px 0px transparentize($color: $border-color, $amount: .75);
+
+            padding: 15px;
+
+            img.event-banner {
+                position: absolute;
+
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                clip-path: url("#circle");
+
+                border-radius: 20px;
+                opacity: 0.35;
+                -moz-opacity: 0.5;
+                filter: alpha(opacity=50);
+            }
+
+            &:hover {
+                background-color: $border-color;
+                color: $container-bg;
+
+                button.event-button {
+                    color: $container-bg;
+                }
+
+                span.event-title {
+                    border-bottom: 2px solid;
+                }
+            }
+        }
+
+        span,
+        div {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+            z-index: 2;
+        }
+
+        span.event-title {
+            grid-column: 1 / span 6;
+            grid-row: 1;
+
+            font-size: 1.8em;
+            border-bottom: 2px $border-color solid;
+        }
+
+        span.event-location {
+            grid-column: 1 / span 3;
+            grid-row: 2;
+        }
+
+        span.event-availability {
+            grid-column: 4 / span 2;
+            grid-row: 2;
+        }
+
+        div.event-timewindow {
+            grid-column: 1 / span 5;
+            grid-row: 3;
+        }
+
+        button.buy-tickets {
+            grid-column: 5;
+            grid-row: 4;
+        }
     }
 
-    td a,
-    td button {
+    .event-button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        border: none;
+        outline: none;
+
+        background-color: transparent;
+        transition: all 250ms;
         text-decoration: none;
 
         color: $text-color;
-        background-color: transparent;
+        width: max-content;
 
-        align-self: center;
-        transition: 150ms all;
-        padding: 15px 10px;
-
-        border: unset;
-        outline: unset;
-        border-radius: unset;
-
-        margin: 5px;
-
-        i {
-            margin-right: 10px;
-        }
+        padding: 15px;
 
         &:hover {
-            color: $body-bg;
-            background-color: $border-color;
+            background-color: $row-hover;
+            color: $text-color !important;
+        }
+
+        &.dark-hover {
+            background-color: transparent;
+
+            &:hover {
+                background-color: $border-color;
+                color: $container-bg !important;
+            }
         }
     }
 }

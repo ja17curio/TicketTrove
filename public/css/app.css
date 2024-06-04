@@ -1,4 +1,117 @@
 @import url("https://fonts.bunny.net/css?family=Nunito");
+section.event-index div.container {
+  background-color: #e8f0f8;
+}
+section.event-index h2 {
+  font-weight: 300;
+  margin: 20px 15px;
+  padding-bottom: 5px;
+  border-bottom: 4px #8498ad solid;
+}
+section.event-index div.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+section.event-index div.event-list a.event {
+  display: grid;
+  grid-template-columns: repeat(8, 12.5%);
+  grid-template-rows: repeat(2, auto);
+  width: -webkit-fill-available;
+  padding: 5px 15px;
+  transition: all 250ms;
+  text-decoration: none;
+  color: #2c2e31;
+}
+section.event-index div.event-list a.event:hover {
+  background-color: #8498ad;
+  color: #e8f0f8;
+}
+section.event-index div.event-list a.event:hover button.event-button {
+  color: #e8f0f8;
+}
+section.event-index div.event-list span.event-title {
+  grid-column: 1/span 3;
+  grid-row: 1;
+}
+section.event-index div.event-list span.event-location {
+  display: flex;
+  align-items: center;
+  grid-column: 5/span 1;
+  grid-row: 1/span 2;
+  gap: 10px;
+}
+section.event-index div.event-list div.event-timewindow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  grid-column: 1/span 3;
+  grid-row: 2;
+}
+section.event-index div.event-list button.buy-tickets {
+  grid-column: 6;
+  grid-row: 1/span 2;
+}
+section.event-index div.event-list button.edit-event {
+  grid-column: 7;
+  grid-row: 1/span 2;
+}
+section.event-index div.event-list button.remove-event {
+  grid-column: 8;
+  grid-row: 1/span 2;
+}
+section.event-index div.event-list span.event-availability {
+  display: flex;
+  align-items: center;
+  grid-column: 4;
+  grid-row: 1/span 2;
+  gap: 10px;
+}
+section.event-index div.event-overview {
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(5, 250px);
+}
+section.event-index div.event-overview a.event {
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: repeat(4, 25%);
+}
+section.event-index div.event-overview span.event-title {
+  grid-column: 1/span 4;
+  grid-row: 1;
+}
+section.event-index div.event-overview span.event-timewindow {
+  grid-column: 1/span 4;
+  grid-row: 4;
+}
+section.event-index .event-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  transition: all 250ms;
+  text-decoration: none;
+  color: #2c2e31;
+  width: max-content;
+  padding: 15px;
+}
+section.event-index .event-button:hover {
+  background-color: #c8dcf1;
+  color: #2c2e31 !important;
+}
+section.event-index .event-button.dark-hover {
+  background-color: transparent;
+}
+section.event-index .event-button.dark-hover:hover {
+  background-color: #8498ad;
+  color: #e8f0f8 !important;
+}
+
+section.insight {
+  padding: 20px 0;
+}
 section.insight div.container {
   border-bottom: 2px solid #8498ad;
   background-color: #e8f0f8;
@@ -33,6 +146,9 @@ section.insight div.container table td {
   flex-direction: column;
   flex-wrap: nowrap;
 }
+section.insight div.container table td:hover {
+  background-color: #e8f0f8;
+}
 section.insight div.container table .small.italic {
   font-size: 0.6em;
   font-weight: 700;
@@ -45,7 +161,7 @@ section.insight div.container table .align-right {
 }
 section.insight div.container a {
   text-decoration: none;
-  color: #4c5661;
+  color: #2c2e31;
   background-color: #e8f0f8;
   align-self: center;
   transition: 150ms all;
@@ -61,7 +177,7 @@ section.insight div.container a:hover {
 
 nav.navbar div.container a.menu-button {
   text-decoration: none;
-  color: #4c5661;
+  color: #2c2e31;
   background-color: #e8f0f8;
   align-self: center;
   transition: 150ms all;
@@ -75,6 +191,16 @@ nav.navbar div.container a.menu-button:hover {
   background-color: #8498ad;
 }
 
+@media (min-width: 2000px) {
+  div.container {
+    max-width: 1860px;
+  }
+}
+@media (min-width: 1400px) and (max-width: 2000px) {
+  div.container {
+    max-width: 1360px;
+  }
+}
 .rounded-image {
   width: 600px;
   height: 300px;
