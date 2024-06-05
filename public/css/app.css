@@ -1,12 +1,13 @@
 @import url("https://fonts.bunny.net/css?family=Nunito");
 section.event-index div.container {
-  background-color: #e8f0f8;
+  background-color: #ffffff;
 }
 section.event-index h2 {
   font-weight: 300;
-  margin: 20px 15px;
-  padding-bottom: 5px;
+  padding: 25px;
+  margin: 0 0 25px 0;
   border-bottom: 4px #8498ad solid;
+  background-color: #e8f0f8;
 }
 section.event-index div.event-list {
   display: flex;
@@ -69,19 +70,82 @@ section.event-index div.event-list span.event-availability {
 }
 section.event-index div.event-overview {
   display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: repeat(5, 250px);
+  grid-template-columns: repeat(3, calc((100% - 40px) / 3));
+  grid-template-rows: repeat(5, 300px);
+  gap: 25px;
+  background-color: #ffffff;
 }
 section.event-index div.event-overview a.event {
-  grid-template-columns: repeat(4, 25%);
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(6, 16.6666666667%);
   grid-template-rows: repeat(4, 25%);
+  justify-items: flex-start;
+  transition: all 250ms;
+  text-decoration: none;
+  color: #2c2e31;
+  border-radius: 20px;
+  background-color: #e8f0f8;
+  box-shadow: 2px 3px 20px 0px rgba(132, 152, 173, 0.25);
+  padding: 15px;
+}
+section.event-index div.event-overview a.event svg.svg {
+  position: absolute;
+}
+section.event-index div.event-overview a.event img.event-banner {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: url("#circle");
+  border-radius: 20px;
+  opacity: 0.25;
+  -moz-opacity: 0.25;
+  filter: alpha(opacity=25);
+}
+section.event-index div.event-overview a.event:hover {
+  background-color: #8498ad;
+  color: #e8f0f8;
+}
+section.event-index div.event-overview a.event:hover button.event-button {
+  color: #e8f0f8;
+}
+section.event-index div.event-overview a.event:hover span.event-title {
+  border-bottom: 2px solid;
+}
+section.event-index div.event-overview a.event:hover img.event-banner {
+  opacity: 0.85;
+  -moz-opacity: 0.85;
+  filter: alpha(opacity=85);
+}
+section.event-index div.event-overview span,
+section.event-index div.event-overview div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
 }
 section.event-index div.event-overview span.event-title {
-  grid-column: 1/span 4;
+  grid-column: 1/span 6;
   grid-row: 1;
+  font-size: 1.8em;
+  border-bottom: 2px #8498ad solid;
 }
-section.event-index div.event-overview span.event-timewindow {
-  grid-column: 1/span 4;
+section.event-index div.event-overview span.event-location {
+  grid-column: 1/span 3;
+  grid-row: 2;
+}
+section.event-index div.event-overview span.event-availability {
+  grid-column: 4/span 2;
+  grid-row: 2;
+}
+section.event-index div.event-overview div.event-timewindow {
+  grid-column: 1/span 5;
+  grid-row: 3;
+}
+section.event-index div.event-overview button.buy-tickets {
+  grid-column: 5;
   grid-row: 4;
 }
 section.event-index .event-button {

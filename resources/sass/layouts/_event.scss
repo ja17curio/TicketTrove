@@ -116,9 +116,13 @@ section.event-index {
             border-radius: 20px;
             background-color: $container-bg;
 
-            box-shadow: 2px 3px 6px 0px transparentize($color: $border-color, $amount: .75);
+            box-shadow: 2px 3px 20px 0px transparentize($color: $border-color, $amount: .75);
 
             padding: 15px;
+
+            svg.svg{
+               position: absolute;
+            }
 
             img.event-banner {
                 position: absolute;
@@ -131,9 +135,9 @@ section.event-index {
                 clip-path: url("#circle");
 
                 border-radius: 20px;
-                opacity: 0.35;
-                -moz-opacity: 0.5;
-                filter: alpha(opacity=50);
+                opacity: 0.25;
+                -moz-opacity: 0.25;
+                filter: alpha(opacity=25);
             }
 
             &:hover {
@@ -146,6 +150,12 @@ section.event-index {
 
                 span.event-title {
                     border-bottom: 2px solid;
+                }
+
+                img.event-banner{
+                    opacity: 0.85;
+                    -moz-opacity: 0.85;
+                    filter: alpha(opacity=85);
                 }
             }
         }
