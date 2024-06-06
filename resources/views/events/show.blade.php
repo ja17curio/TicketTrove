@@ -62,8 +62,7 @@
 
     <div class="container d-flex justify-content-center align-items-center flex-column">
         @isset($event)
-            <img src="{{ $event->banner_path }}"
-                alt="Gecentreerde Afbeelding" class="rounded-image mx-auto d-block">
+            <img src="{{ $event->banner_path }}" alt="Gecentreerde Afbeelding" class="rounded-image mx-auto d-block">
             <h1 class="mt-5">{{ $event->name }}</h1>
             <div class="row text-center w-100 mt-4">
                 <div class="col-4 d-flex align-items-center flex-column h-100">
@@ -101,6 +100,6 @@
             @endisset
         @endisset
 
-        <a href="/initiate_payment/{{ $event->id }}">Koop Tickets</a>
+        <a href="{{ route('payments.create', ['event_id' => $event->id]) }}">Koop Tickets</a>
     </div>
 @endsection

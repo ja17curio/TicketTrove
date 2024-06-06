@@ -9,6 +9,7 @@ use App\Models\Ticket;
 use App\Models\StatusCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 
 class PaymentController extends Controller
@@ -24,9 +25,11 @@ class PaymentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $event = Event::where('id', '==', $request->input('event_id'))->first();
+
+        return view('payments.create', compact('event'));
     }
 
     /**
@@ -34,11 +37,11 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        if (!Auth::check()) {
+            redirect(route('403'));
+        }
 
-    public function initiate_payment(int $event_id)
-    {
+        $event_id = $request->input('event_id');
         $order = new Order();
         $order->event_id = $event_id;
         $order->user_id = Auth::user()->id;
@@ -47,9 +50,10 @@ class PaymentController extends Controller
         $payment = new Payment();
         $payment->order_id = $order->id;
         $payment->status_id = 2;
+        $payment->status_description = 'has_outstanding_bill';
         $payment->save();
 
-        redirect(route('payments.show', $payment));
+        redirect()->route('payments.show', ['payment' => $payment]);
     }
 
     /**

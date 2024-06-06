@@ -96,7 +96,7 @@ section.event-index {
     div.event-overview {
         display: grid;
 
-        grid-template-columns: repeat(3, calc(calc(100% - 40px) / 3));
+        grid-template-columns: repeat(3, calc(calc(100% - 50px) / 3));
         grid-template-rows: repeat(5, 300px);
 
         gap: 25px;
@@ -115,8 +115,6 @@ section.event-index {
             color: $text-color;
             border-radius: 20px;
             background-color: $container-bg;
-
-            box-shadow: 2px 3px 20px 0px transparentize($color: $border-color, $amount: .75);
 
             padding: 15px;
 
@@ -143,6 +141,8 @@ section.event-index {
             &:hover {
                 background-color: $border-color;
                 color: $container-bg;
+
+                box-shadow: 2px 3px 20px 0px transparentize($color: $border-color, $amount: .25);
 
                 button.event-button {
                     color: $container-bg;

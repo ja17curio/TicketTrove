@@ -42,7 +42,6 @@ Route::resource('shopping_cart', ShoppingCartController::class);
 Route::resource('payments', PaymentController::class);
 Route::resource('outstanding_bills', OutstandingBillController::class);
 Route::resource('users', UserController::class);
-Route::get('/initiate_payment/{event}', [PaymentController::class, 'initiate_payment']);
 
 //example routes
 Route::get('example/test', [ExampleController::class, 'testfunctie']);
