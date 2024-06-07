@@ -1,8 +1,20 @@
+// Layout
+@use 'layouts';
+
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+
+.rounded-image {
+    width: 600px;
+    height: 300px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.static-button-event-details {
+    width: 150px;
+}

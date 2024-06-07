@@ -40,31 +40,31 @@
         </thead>
         <tbody>
         @foreach ($events as $event)
-            <tr>
-                <td>{{ $event->id }}</td>
-                <td>{{ $event->name }}</td>
-                <td>{{ $event->location }}</td>
-                <td>{{ $event->start }}</td>
-                <td>{{ $event->end }}</td>
-                @if($event->availability->available != 0)
-                    <td><a href="">Koop tickets</a></td>
-                @else
-                    <td>Geen tickets verkrijgbaar</td>
-                @endif
-                @auth
-                    @if(Auth::user()->is_admin)
-                        <td>{{ $event->user->name }}</td>
-                        <td>
-                            <form action="{{ route('events.destroy',$event->id) }}" method="Post">
-                                <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Bewerk</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Verwijder</button>
-                            </form>
-                        </td>
+            <tr onclick="window.location='{{ route('events.show', $event->id) }}';" style="cursor:pointer;">
+                    <td>{{ $event->id }}</td>
+                    <td>{{ $event->name }}</td>
+                    <td>{{ $event->location }}</td>
+                    <td>{{ $event->start }}</td>
+                    <td>{{ $event->end }}</td>
+                    @if($event->availability->available != 0)
+                        <td><a href="">Koop tickets</a></td>
+                    @else
+                        <td>Geen tickets verkrijgbaar</td>
                     @endif
-                @endauth
-            </tr>
+                    @auth
+                        @if(Auth::user()->is_admin)
+                            <td>{{ $event->user->name }}</td>
+                            <td>
+                                <form action="{{ route('events.destroy',$event->id) }}" method="Post">
+                                    <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Bewerk</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Verwijder</button>
+                                </form>
+                            </td>
+                        @endif
+                    @endauth
+                </tr>
         @endforeach
         </tbody>
     </table>
