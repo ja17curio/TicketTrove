@@ -8,7 +8,28 @@
         <form action="{{ route('payments.store') }}" method="POST">
             <div class="container">
                 <h4><x-icon icon="arrow-right" />Ticketoverzicht</h4>
+                <div class="ticket-overview">
+                    @foreach ($ticketTypes as $ticketType)
+                        <div class="ticket" id="{{ $ticketType->type }}">
+                            @switch($ticketType->type)
+                                @case("VIP")
+                                    <x-icon class="ticket-icon" icon="crown" />
+                                    @break
+                                @case('Early bird')
+                                    <x-icon class="ticket-icon" icon="crow" />
+                                    @break
+                                @case('Normal')
+                                    <x-icon class="ticket-icon" icon="recycle" />
+                                    @break;
+                                @default
+                                    
+                            @endswitch
 
+                            <span><x-icon icon="ticket" />{{ $ticketType->availability->available }} tickets verkrijgbaar</span>
+                            <button class="select-ticket container-bg"><x-icon icon="hand-pointer" />Selecteren</button>
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="container">
                 <h4><x-icon icon="arrow-right" />Algemene gegevens</h4>

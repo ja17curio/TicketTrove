@@ -1,0 +1,19 @@
+@use '../variables' as *;
+
+div.ticket-overview{
+    display: flex;
+    justify-content: space-evenly;
+
+    width: -webkit-fill-available;
+
+    div.ticket{
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    i.ticket-icon{
+        font-size: 4em;
+    }
+}

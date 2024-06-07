@@ -7,6 +7,8 @@ use App\Models\Payment;
 use App\Models\Event;
 use App\Models\Ticket;
 use App\Models\StatusCode;
+use App\Models\EventTicketsAvailability;
+use App\Models\TicketType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -27,9 +29,11 @@ class PaymentController extends Controller
      */
     public function create(Request $request)
     {
-        $event = Event::where('id', '==', $request->input('event_id'))->first();
+        $event = Event::find($request->input('event_id'));
+        $availableTicketTypes = TicketType::all();
+        $availability = EventTicketsAvailability::where('event_id', '==', $request->input('event_id'))->get();
 
-        return view('payments.create', compact('event'));
+        return view('payments.create', ['event' => $event, 'ticketTypes' => $availableTicketTypes, 'availability' => $availability]);
     }
 
     /**

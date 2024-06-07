@@ -1,4 +1,25 @@
 @import url("https://fonts.bunny.net/css?family=Nunito");
+a, button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+  padding: 5px 15px;
+  transition: all 250ms;
+  text-decoration: none;
+  color: #2c2e31;
+  border: unset;
+  outline: unset;
+  border-radius: 6px;
+}
+a.container-bg, button.container-bg {
+  background-color: #e8f0f8;
+}
+a:hover, button:hover {
+  background-color: #8498ad;
+  color: #e8f0f8;
+}
+
 section div.container {
   background-color: #e8f0f8;
 }
@@ -258,6 +279,20 @@ section.insight div.container a i {
 section.insight div.container a:hover {
   color: #f8fafc;
   background-color: #8498ad;
+}
+
+div.ticket-overview {
+  display: flex;
+  justify-content: space-evenly;
+  width: -webkit-fill-available;
+}
+div.ticket-overview div.ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.ticket-overview i.ticket-icon {
+  font-size: 4em;
 }
 
 nav.navbar div.container a.menu-button {
