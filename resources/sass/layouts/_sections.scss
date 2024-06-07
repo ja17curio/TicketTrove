@@ -1,0 +1,29 @@
+@use "../variables" as *;
+
+section {
+    div.container {
+        background-color: $container-bg;
+    }
+
+    h2 {
+        font-weight: 300;
+        padding: 25px;
+        margin: 0 0 25px 0;
+
+        border-bottom: 4px $border-color solid;
+        background-color: $container-bg;
+    }
+
+    h4 {
+        font-weight: 400;
+        padding: 25px;
+        margin: 0 0 25px 0;
+
+        border-bottom: 4px $border-color solid;
+        background-color: $container-bg;
+
+        i {
+            margin-right: 25px;
+        }
+    }
+}

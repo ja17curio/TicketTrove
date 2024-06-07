@@ -1,11 +1,24 @@
 // Layout
 @use 'layouts';
+@use 'screens' as *;
 
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
 // Variables
 @import 'variables';
+
+@include screen-xxxl{
+    div.container{
+        max-width: 1860px;
+    }
+}
+
+@include screen-xxl{
+    div.container{
+        max-width: 1360px;
+    }
+}
 
 
 .rounded-image {

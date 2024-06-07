@@ -18,6 +18,12 @@ class EventFactory extends Factory
     public function definition(): array
     {
         $creator = User::where('is_admin', 1)->inRandomOrder()->first();
+        $bannerPaths = [
+            '/assets/events/thunderdome.jpg',
+            '/assets/events/defqon1.jpg',
+            '/assets/events/intents.jpeg',
+            '/assets/events/wish-outdoor.jpg'
+        ];
 
         return [
             'name' => fake()->streetName(),
@@ -26,6 +32,7 @@ class EventFactory extends Factory
             'end_datetime' => fake()->dateTime(),
             'description' => fake()->sentence(),
             'creator' => $creator->id,
+            'banner_path' => $bannerPaths[rand(0, count($bannerPaths) - 1)],
         ];
     }
 }

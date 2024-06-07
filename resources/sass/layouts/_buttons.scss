@@ -1,0 +1,27 @@
+@use '../variables' as *;
+
+a, button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: -webkit-fill-available;
+    padding: 5px 15px;
+    transition: all 250ms;
+
+    text-decoration: none;
+    color: $text-color;
+    border: unset;
+    outline: unset;
+
+    border-radius: 6px;
+
+    &.container-bg{
+        background-color: $container-bg;
+    }
+
+    &:hover {
+        background-color: $border-color;
+        color: $container-bg;
+    }
+}
