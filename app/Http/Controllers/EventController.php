@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Illuminate\Http\Request;
 use App\Models\EventTicketsAvailability;
 use App\Models\TicketType;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
@@ -162,7 +164,7 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        $event = Event::find($id);
+        $event = event::find($id);
         $event->delete();
 
         return redirect()->route('events.index')->with('succes', 'Evenement is verwijderd');
